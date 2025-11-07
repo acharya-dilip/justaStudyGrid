@@ -2,8 +2,12 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
-struct tasks {
-};
+struct buttons {
+    GtkWidget *sweeperButtons;
+}buttons[81];
+
+void declareButtons();
+
 
 static void activate(GtkApplication *app,gpointer user_data) {
 
@@ -15,6 +19,16 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
 
 
+
+
+}
+
+void declareButtons() {
+    for (int i=0;i<9;i++) {
+        for (int j = 0;j<9;j++) {
+
+        }
+    }
 }
 
 

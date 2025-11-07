@@ -14,7 +14,7 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
     //Init of windowMain
     GtkWidget *windowMain = gtk_application_window_new(app);
-    gtk_window_set_default_size(GTK_WINDOW(windowMain),500,500);
+    gtk_window_set_default_size(GTK_WINDOW(windowMain),450,450);
     gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
 
@@ -33,8 +33,7 @@ void declareButtons() {
         for (int j = 0;j<9;j++) {
 
             button[butno].sweeperButtons = gtk_button_new();
-
-
+            gtk_grid_attach(GTK_GRID(gridMain),button[butno].sweeperButtons,j,i,50,50);
             butno++;
         }
     }

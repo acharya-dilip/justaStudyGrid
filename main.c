@@ -24,7 +24,7 @@ static void activate(GtkApplication *app,gpointer user_data) {
     gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);
 
     //Declare and attach all the buttons
-    //declareButtons();
+    declareButtons();
 
 
 

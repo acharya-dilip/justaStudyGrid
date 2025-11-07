@@ -8,6 +8,7 @@ struct buttons {
 
 void declareButtons();
 
+
 //Globalised variables
 GtkWidget *gridMain;
 static void activate(GtkApplication *app,gpointer user_data) {
@@ -22,6 +23,9 @@ static void activate(GtkApplication *app,gpointer user_data) {
     gridMain = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);
 
+    //Declare and attach all the buttons
+    //declareButtons();
+
 
 
 
@@ -33,8 +37,10 @@ void declareButtons() {
         for (int j = 0;j<9;j++) {
 
             button[butno].sweeperButtons = gtk_button_new();
-            gtk_grid_attach(GTK_GRID(gridMain),button[butno].sweeperButtons,j,i,50,50);
+            gtk_grid_attach(GTK_GRID(gridMain),button[butno].sweeperButtons,j,i,1,1);
+            printf("Row = %d \t column = %d",i,j);
             butno++;
+            printf("buttono = %d \n",butno);
         }
     }
 }

@@ -8,15 +8,19 @@ struct buttons {
 
 void declareButtons();
 
-
+//Globalised variables
+GtkWidget *gridMain;
 static void activate(GtkApplication *app,gpointer user_data) {
 
     //Init of windowMain
     GtkWidget *windowMain = gtk_application_window_new(app);
     gtk_window_set_default_size(GTK_WINDOW(windowMain),500,500);
-    gtk_window_set_title(GTK_WINDOW(windowMain),"justaGridSweeper");
+    gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
 
+    //init of gridMain
+    gridMain = gtk_grid_new();
+    gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);
 
 
 

@@ -7,6 +7,7 @@ struct buttons {
 }button[81];
 
 void declareButtons();
+void onClickButton(GtkButton *button,gpointer user_data);
 
 
 //Globalised variables
@@ -38,12 +39,16 @@ void declareButtons() {
 
             button[butno].sweeperButtons = gtk_button_new();
             gtk_grid_attach(GTK_GRID(gridMain),button[butno].sweeperButtons,j,i,1,1);
-            //printf("Row = %d \t column = %d",i,j);
+            //Sets the minimum size of buttons to be 50x50
             gtk_widget_set_size_request(GTK_WIDGET(button[butno].sweeperButtons),50,50);
             butno++;
-            //printf("buttono = %d \n",butno);
         }
     }
+}
+
+void onClickButton(GtkButton *button,gpointer user_data) {
+    int buttonNo = GPOINTER_TO_INT(user_data);
+    printf("Button no=%d",buttonNo);
 }
 
 

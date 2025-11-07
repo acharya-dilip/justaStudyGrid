@@ -4,7 +4,7 @@
 
 struct buttons {
     GtkWidget *sweeperButtons;
-}buttons[81];
+}button[81];
 
 void declareButtons();
 
@@ -22,11 +22,16 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
 
 }
-
+//for the button number count
+int butno;
 void declareButtons() {
     for (int i=0;i<9;i++) {
         for (int j = 0;j<9;j++) {
 
+            button[butno].sweeperButtons = gtk_button_new();
+
+
+            butno++;
         }
     }
 }

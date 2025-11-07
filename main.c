@@ -38,9 +38,10 @@ void declareButtons() {
 
             button[butno].sweeperButtons = gtk_button_new();
             gtk_grid_attach(GTK_GRID(gridMain),button[butno].sweeperButtons,j,i,1,1);
-            printf("Row = %d \t column = %d",i,j);
+            //printf("Row = %d \t column = %d",i,j);
+            gtk_widget_set_size_request(GTK_WIDGET(button[butno].sweeperButtons),50,50);
             butno++;
-            printf("buttono = %d \n",butno);
+            //printf("buttono = %d \n",butno);
         }
     }
 }

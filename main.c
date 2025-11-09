@@ -356,6 +356,10 @@ void fetchHiScore() {
     fscanf(file,"%d",&hiScore);
     fclose(file);
 }
+void updateHiScore() {
+    FILE *file = fopen("HiScore.txt","w");
+    fprintf(file,"%d",hiScore);
+}
 int main(int argc, char **argv){
     FILE *file = fopen("HiScore.txt","a");
     fclose(file);

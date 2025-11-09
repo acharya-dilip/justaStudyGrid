@@ -336,8 +336,11 @@ void restartGame() {
     gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
     gtk_widget_set_visible(GTK_WIDGET(windowGameWin),FALSE);
     gtk_window_destroy(GTK_WINDOW(windowMain));
-    hiScore = gameScore;
-    gameScore = 0;
+    if (gameScore>hiScore){
+        hiScore = gameScore;
+        gameScore = 0;
+        updateHiScore();
+    }
     clearMines();
     mainWindow();
 }

@@ -194,6 +194,11 @@ void onClickButton(GtkButton *button,gpointer user_data){
 }
 
 
+void expandClick() {
+
+}
+
+
 
 int main(int argc, char **argv){
     FILE *file = fopen("filePath.txt","a");

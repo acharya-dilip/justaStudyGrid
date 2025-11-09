@@ -14,7 +14,7 @@ struct buttons {
 //Stores the values of the buttonNumbers for Mines
 int buttonMines[10];//={00,11,22,33,44,55,66,77,88,23};
 int gameScore;
-int hiScore;
+char hiScore[5];
 
 void mainWindow();
 void declareButtons();
@@ -339,8 +339,10 @@ void restartGame() {
     gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
     gtk_widget_set_visible(GTK_WIDGET(windowGameWin),FALSE);
     gtk_window_destroy(GTK_WINDOW(windowMain));
-    if (gameScore>hiScore){
-        hiScore = gameScore;
+    char temp[5];
+    snprintf(temp,sizeof(temp),"%d",gameScore);
+    if (strcmp(temp,hiScore)>=0){
+        strcpy(hiScore,temp);
         gameScore = 0;
         updateHiScore();
     }
@@ -354,17 +356,17 @@ void updateScore() {
     gtk_editable_set_text(GTK_EDITABLE(entryScore),temp);
 
     char temp1[50];
-    snprintf(temp1,sizeof(temp1),"High Score: %d",hiScore);
+    snprintf(temp1,sizeof(temp1),"High Score: %s",hiScore);
     gtk_editable_set_text(GTK_EDITABLE(entryHiScore),temp1);
 }
 void fetchHiScore() {
     FILE *file = fopen("HiScore.txt","r");
-    fscanf(file,"%d",&hiScore);
+    fscanf(file,"%s",hiScore);
     fclose(file);
 }
 void updateHiScore() {
     FILE *file = fopen("HiScore.txt","w");
-    fprintf(file,"%d",hiScore);
+    fprintf(file,"%s",hiScore);
 }
 int main(int argc, char **argv){
     FILE *file = fopen("HiScore.txt","a");

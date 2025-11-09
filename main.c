@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <gtk/gtk.h>
 #include <curl/curl.h>
+
 
 struct buttons {
     GtkWidget *sweeperButtons;
@@ -9,7 +11,7 @@ struct buttons {
     int isFlag;
 }button[9][9];
 //Stores the values of the buttonNumbers for Mines
-int buttonMines[10]={0,1,2,3,4,5,6,7,8};
+int buttonMines[10]={0,1,2,3,4,5,6,7,8,10};
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
@@ -52,7 +54,16 @@ static void activate(GtkApplication *app,gpointer user_data) {
 }
 
 void fetchRandInt() {
-
+    srand(time(NULL));
+    for (int k=0;k<10;k++) {
+        int i = rand() % 9;
+        int j = rand() % 9;
+        int num = i*10+j;
+        if (!buttonMines[num]) {
+            buttonMines[i]=num;
+        }
+        printf("%d\t",num);
+    }
 }
 
 

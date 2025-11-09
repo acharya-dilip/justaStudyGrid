@@ -35,7 +35,9 @@ static void activate(GtkApplication *app,gpointer user_data) {
     gtk_window_set_title(GTK_WINDOW(windowGameOver),"GAME OVER!");
     gtk_window_set_default_size(GTK_WINDOW(windowGameOver),200,200);
 
-
+    //Init of buttonRestart
+    GtkWidget *buttonRestart = gtk_button_new_with_label("Restart🔃");
+    gtk_window_set_child(GTK_WINDOW(windowGameOver),buttonRestart);
 }
 
 

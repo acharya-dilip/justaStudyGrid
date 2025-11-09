@@ -4,6 +4,8 @@
 
 struct buttons {
     GtkWidget *sweeperButtons;
+    int isBomb;
+    int isFlag;
 }button[81];
 
 void declareButtons();

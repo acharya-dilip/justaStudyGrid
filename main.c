@@ -40,6 +40,10 @@ static void activate(GtkApplication *app,gpointer user_data) {
     gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
 
+    //Init of headerMain
+    GtkWidget *headerMain = gtk_header_bar_new();
+    gtk_window_set_titlebar(GTK_WINDOW(windowMain),headerMain);
+
     //init of gridMain
     gridMain = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);

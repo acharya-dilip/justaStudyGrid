@@ -328,6 +328,8 @@ void restartGame() {
 
 
 int main(int argc, char **argv){
+    FILE *file = fopen("HiScore.txt","a");
+    fclose(file);
     GtkApplication *app;
     int status;
     app= gtk_application_new ("org.gtk.example", G_APPLICATION_DEFAULT_FLAGS);

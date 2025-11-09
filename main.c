@@ -286,8 +286,20 @@ void gameOver() {
 
 }
 
+//I don't think anyone's gonna beat this but Ima write this condition anyways
+//Globalised Variables
+GtkWidget *windowGameWin;
 void gameWin() {
+    //Init of windowGameOver
+    windowGameWin = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(windowGameOver),"You Win!!");
+    gtk_window_set_default_size(GTK_WINDOW(windowGameOver),200,85);
 
+    //Init of buttonRestart
+    GtkWidget *buttonRestart = gtk_button_new_with_label("Restart🔃");
+    gtk_window_set_child(GTK_WINDOW(windowGameOver),buttonRestart);
+    gtk_widget_add_css_class(buttonRestart,"ButtonRestart");
+    g_signal_connect(buttonRestart,"clicked",G_CALLBACK(restartGame),NULL);
 }
 
 int main(int argc, char **argv){

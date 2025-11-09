@@ -60,8 +60,8 @@ static void activate(GtkApplication *app,gpointer user_data) {
 void fetchRandInt() {
     srand(time(NULL));
     for (int k=0;k<10;k++) {
-        int i = rand() % 9;
-        int j = rand() % 9;
+        int i = (rand() % 8)+1;
+        int j = (rand() % 8)+1;
         int num = i*10+j;
         if (!buttonMines[num]) {
             buttonMines[i]=num;

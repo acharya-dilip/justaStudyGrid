@@ -7,7 +7,8 @@ struct buttons {
     int isBomb;
     int isFlag;
 }button[9][9];
-
+//Stores the values of the buttonNumbers for Mines
+int buttonMines[10];
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
@@ -37,8 +38,22 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
 }
 void setMine() {
-    button[0][0].isBomb = 1;
+    //button[0][0].isBomb = 1;
+    int rept;
+    for (int k=0;k<10;k++) {
+        while (rept==0){
+            int r = rand() % 81;
+            for (int l=0;l<k;l++) {
+                if (buttonMines[l]!=r) {
+                    rept=1;
+                }
+            }
+        }
+    }
 }
+
+
+
 void setNumbers() {
 
 }

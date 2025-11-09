@@ -46,10 +46,11 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
     //Sets Random Buttons as mines
     setMine();
-    //Sets the value for proximalMines for buttons near mines
-    setProximalMines();
     //Declare and attach all the buttons
     declareButtons();
+    //Sets the value for proximalMines for buttons near mines
+
+
 
 }
 
@@ -58,7 +59,7 @@ void fetchRandInt() {
     for (int k=0;k<10;k++) {
         int i = rand() % 9;
         int j = rand() % 9;
-        int num = i*10+j;
+        int num = (i*10)+j;
         if (!buttonMines[num]) {
             buttonMines[i]=num;
         }
@@ -75,6 +76,7 @@ void setMine() {
         int j = buttonMines[k] % 10;
         buttons[i][j].isBomb = 1;
     }
+    setProximalMines();
 }
 
 
@@ -83,20 +85,48 @@ void setProximalMines() {
     for (int k=0;k<10;k++) {
         int i = buttonMines[k]/10;
         int j = buttonMines[k]%10;
-        buttons[i+1][j].proximalMines = buttons[i+1][j].proximalMines+1;
-        buttons[i-1][j].proximalMines = buttons[i-1][j].proximalMines+1;
-        buttons[i][j+1].proximalMines = buttons[i][j+1].proximalMines+1;
-        buttons[i][j-1].proximalMines = buttons[i][j-1].proximalMines+1;
-        buttons[i+1][j+1].proximalMines = buttons[i+1][j+1].proximalMines+1;
-        buttons[i-1][j-1].proximalMines = buttons[i-1][j-1].proximalMines+1;
-        buttons[i+1][j-1].proximalMines = buttons[i+1][j-1].proximalMines+1;
-        buttons[i-1][j+1].proximalMines = buttons[i-1][j+1].proximalMines+1;
+
+        if (i==0) {
+            buttons[i+1][j].proximalMines = buttons[i+1][j].proximalMines+1;
+            buttons[i][j+1].proximalMines = buttons[i][j+1].proximalMines+1;
+            buttons[i][j-1].proximalMines = buttons[i][j-1].proximalMines+1;
+            buttons[i+1][j+1].proximalMines = buttons[i+1][j+1].proximalMines+1;
+            buttons[i+1][j-1].proximalMines = buttons[i+1][j-1].proximalMines+1;
+        }else if (i==8) {
+            buttons[i-1][j].proximalMines = buttons[i-1][j].proximalMines+1;
+            buttons[i][j+1].proximalMines = buttons[i][j+1].proximalMines+1;
+            buttons[i][j-1].proximalMines = buttons[i][j-1].proximalMines+1;
+            buttons[i-1][j-1].proximalMines = buttons[i-1][j-1].proximalMines+1;
+            buttons[i-1][j+1].proximalMines = buttons[i-1][j+1].proximalMines+1;
+        }else if (j==0) {
+            buttons[i+1][j].proximalMines = buttons[i+1][j].proximalMines+1;
+            buttons[i-1][j].proximalMines = buttons[i-1][j].proximalMines+1;
+            buttons[i][j+1].proximalMines = buttons[i][j+1].proximalMines+1;
+            buttons[i+1][j+1].proximalMines = buttons[i+1][j+1].proximalMines+1;
+            buttons[i-1][j+1].proximalMines = buttons[i-1][j+1].proximalMines+1;
+        }else if (j==8) {
+            buttons[i+1][j].proximalMines = buttons[i+1][j].proximalMines+1;
+            buttons[i-1][j].proximalMines = buttons[i-1][j].proximalMines+1;
+            buttons[i][j-1].proximalMines = buttons[i][j-1].proximalMines+1;
+            buttons[i-1][j-1].proximalMines = buttons[i-1][j-1].proximalMines+1;
+            buttons[i+1][j-1].proximalMines = buttons[i+1][j-1].proximalMines+1;
+        }
+        else {
+            buttons[i+1][j].proximalMines = buttons[i+1][j].proximalMines+1;
+            buttons[i-1][j].proximalMines = buttons[i-1][j].proximalMines+1;
+            buttons[i][j+1].proximalMines = buttons[i][j+1].proximalMines+1;
+            buttons[i][j-1].proximalMines = buttons[i][j-1].proximalMines+1;
+            buttons[i+1][j+1].proximalMines = buttons[i+1][j+1].proximalMines+1;
+            buttons[i-1][j-1].proximalMines = buttons[i-1][j-1].proximalMines+1;
+            buttons[i+1][j-1].proximalMines = buttons[i+1][j-1].proximalMines+1;
+            buttons[i-1][j+1].proximalMines = buttons[i-1][j+1].proximalMines+1;
+        }
 
     }
 }
 
 //for the button number count
-void declareButtons() {
+void declareButtons(){
     for (int i=0;i<9;i++) {
         for (int j = 0;j<9;j++) {
 
@@ -112,7 +142,7 @@ void declareButtons() {
 
 
 
-void onClickButton(GtkButton *button,gpointer user_data) {
+void onClickButton(GtkButton *button,gpointer user_data){
     int buttonNo = GPOINTER_TO_INT(user_data);
     int i = buttonNo / 10;
     int j = buttonNo % 10;

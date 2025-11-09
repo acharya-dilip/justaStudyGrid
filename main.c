@@ -73,6 +73,7 @@ void fetchRandInt() {
             cycle++;
         }
     }
+    printf("I RUN AGAIAN");
 }
 
 

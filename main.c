@@ -14,6 +14,7 @@ struct buttons {
 //Stores the values of the buttonNumbers for Mines
 int buttonMines[10];//={00,11,22,33,44,55,66,77,88,23};
 
+void mainWindow();
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
 void fetchRandInt();
@@ -23,10 +24,19 @@ void expandClick();
 void gameOver();
 
 
-//Globalised variables
-GtkWidget *gridMain;
+//Globalized Variables
+GtkWidget *windowGameOver;
 static void activate(GtkApplication *app,gpointer user_data) {
+    //Activates the Program
+    mainWindow();
 
+
+
+
+}
+
+
+void mainWindow() {
     //Initalizing CSS
     GtkCssProvider *provider = gtk_css_provider_new();
     gtk_css_provider_load_from_path(provider, "styles.css");
@@ -37,7 +47,7 @@ static void activate(GtkApplication *app,gpointer user_data) {
     );
 
     //Init of windowMain
-    GtkWidget *windowMain = gtk_application_window_new(app);
+    GtkWidget *windowMain = gtk_window_new();
     gtk_window_set_default_size(GTK_WINDOW(windowMain),450,450);
     gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
@@ -51,9 +61,6 @@ static void activate(GtkApplication *app,gpointer user_data) {
     //Declare and attach all the buttons
     declareButtons();
     //Sets the value for proximalMines for buttons near mines
-
-
-
 }
 //Fetches 10 random integers and stores in buttonMines
 void fetchRandInt() {

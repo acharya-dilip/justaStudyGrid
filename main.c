@@ -83,7 +83,7 @@ void mainWindow() {
 
     //Init of entryHiScore
     char temp1[50];
-    snprintf(temp1,sizeof(temp1),"Score: %d",gameScore);
+    snprintf(temp1,sizeof(temp1),"HiScore: %d",gameScore);
     GtkWidget *entryHiScore = gtk_entry_new();
     gtk_editable_set_text(GTK_EDITABLE(entryHiScore),temp1);
     gtk_grid_attach(GTK_GRID(gridMain),entryHiScore,7,0,2,1);

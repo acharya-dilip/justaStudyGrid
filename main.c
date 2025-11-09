@@ -14,6 +14,7 @@ struct buttons {
 //Stores the values of the buttonNumbers for Mines
 int buttonMines[10];//={00,11,22,33,44,55,66,77,88,23};
 int gameScore;
+int hiScore;
 
 void mainWindow();
 void declareButtons();

@@ -6,7 +6,7 @@ struct buttons {
     GtkWidget *sweeperButtons;
     int isBomb;
     int isFlag;
-}button[81];
+}button[9][9];
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
@@ -39,11 +39,11 @@ void declareButtons() {
     for (int i=0;i<9;i++) {
         for (int j = 0;j<9;j++) {
 
-            button[butno].sweeperButtons = gtk_button_new();
-            gtk_grid_attach(GTK_GRID(gridMain),button[butno].sweeperButtons,j,i,1,1);
-            g_signal_connect(button[butno].sweeperButtons,"clicked",G_CALLBACK(onClickButton),GINT_TO_POINTER(butno));
+            button[i][j].sweeperButtons = gtk_button_new();
+            gtk_grid_attach(GTK_GRID(gridMain),button[i][j].sweeperButtons,j,i,1,1);
+            g_signal_connect(button[i][j].sweeperButtons,"clicked",G_CALLBACK(onClickButton),GINT_TO_POINTER(butno));
             //Sets the minimum size of buttons to be 50x50
-            gtk_widget_set_size_request(GTK_WIDGET(button[butno].sweeperButtons),50,50);
+            gtk_widget_set_size_request(GTK_WIDGET(button[i][j].sweeperButtons),50,50);
             butno++;
         }
     }
@@ -66,7 +66,7 @@ int main(int argc, char **argv){
     status = g_application_run (G_APPLICATION (app), argc, argv);
     g_object_unref (app);
 
-    GtkCssProvider *provider = gtk_css_provider_new();
+     GtkCssProvider *provider = gtk_css_provider_new();
     gtk_css_provider_load_from_path(provider, "styles.css");
 
     gtk_style_context_add_provider_for_display(
@@ -74,6 +74,5 @@ int main(int argc, char **argv){
         GTK_STYLE_PROVIDER(provider),
         GTK_STYLE_PROVIDER_PRIORITY_USER
     );
-
     return status;
 }

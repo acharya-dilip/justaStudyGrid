@@ -247,7 +247,7 @@ void gameOver() {
             }
         }
     }
-
+    gtk_window_present(GTK_WINDOW(windowGameOver));
 
 }
 

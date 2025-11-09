@@ -46,6 +46,8 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
     //Sets Random Buttons as mines
     setMine();
+    //Sets the value for proximalMines for buttons near mines
+    setProximalMines();
     //Declare and attach all the buttons
     declareButtons();
 

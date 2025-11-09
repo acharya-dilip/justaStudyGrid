@@ -1,9 +1,13 @@
-.ButtonBomb{
-    background-image: url("src/bomb.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.ButtonInvisible{
+button {
+    .ButtonBomb {
+        color: transparent;
+        background-image: url("src/bomb.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
+    .ButtonInvisible {
+
+    }
 }

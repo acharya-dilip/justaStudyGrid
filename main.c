@@ -31,6 +31,8 @@ static void activate(GtkApplication *app,gpointer user_data) {
     gridMain = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);
 
+    //Sets Random Buttons as mines
+    setMine();
     //Declare and attach all the buttons
     declareButtons();
 

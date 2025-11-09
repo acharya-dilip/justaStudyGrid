@@ -23,6 +23,7 @@ void setProximalMines();
 void expandClick();
 void gameOver();
 void restartGame();
+void clearOld();
 
 
 //Globalized Variables
@@ -79,9 +80,16 @@ void mainWindow() {
 void restartGame() {
     gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
     gtk_window_destroy(GTK_WINDOW(windowMain));
+    clearOld();
     mainWindow();
 }
+void clearOld() {
+    for (int i =0 ; i < 9;i++) {
+        for (int j = 0 ; j<9;j++) {
 
+        }
+    }
+}
 //Fetches 10 random integers and stores in buttonMines
 void fetchRandInt() {
      srand(time(NULL));

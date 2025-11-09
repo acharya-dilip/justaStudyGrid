@@ -40,7 +40,8 @@ static void activate(GtkApplication *app,gpointer user_data) {
     gtk_window_set_child(GTK_WINDOW(windowGameOver),buttonRestart);
 }
 
-
+//Globalized Variables
+GtkWidget *gridMain;
 void mainWindow() {
     //Initalizing CSS
     GtkCssProvider *provider = gtk_css_provider_new();

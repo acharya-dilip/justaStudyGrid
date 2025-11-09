@@ -9,5 +9,5 @@
 }
 
 .ButtonInvisible {
-
+    all: unset;
 }

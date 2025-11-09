@@ -9,7 +9,7 @@ struct buttons {
     int isFlag;
 }button[9][9];
 //Stores the values of the buttonNumbers for Mines
-int buttonMines[10]={1,2,3,4,5,6,7,8,9};
+int buttonMines[10]={0,1,2,3,4,5,6,7,8};
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
@@ -21,6 +21,15 @@ void setNumbers();
 //Globalised variables
 GtkWidget *gridMain;
 static void activate(GtkApplication *app,gpointer user_data) {
+
+    //Initalizing CSS
+    GtkCssProvider *provider = gtk_css_provider_new();
+    gtk_css_provider_load_from_path(provider, "styles.css");
+    gtk_style_context_add_provider_for_display(
+        gdk_display_get_default(),
+        GTK_STYLE_PROVIDER(provider),
+        GTK_STYLE_PROVIDER_PRIORITY_USER
+    );
 
     //Init of windowMain
     GtkWidget *windowMain = gtk_application_window_new(app);
@@ -116,13 +125,5 @@ int main(int argc, char **argv){
     g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
     status = g_application_run (G_APPLICATION (app), argc, argv);
     g_object_unref (app);
-
-     GtkCssProvider *provider = gtk_css_provider_new();
-    gtk_css_provider_load_from_path(provider, "styles.css");
-    gtk_style_context_add_provider_for_display(
-        gdk_display_get_default(),
-        GTK_STYLE_PROVIDER(provider),
-        GTK_STYLE_PROVIDER_PRIORITY_USER
-    );
     return status;
 }

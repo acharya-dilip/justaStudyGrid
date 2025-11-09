@@ -87,6 +87,7 @@ void clearMines() {
     for (int i =0 ; i < 9;i++) {
         for (int j = 0 ; j<9;j++) {
             buttons[i][j].isBomb=0;
+            buttons[i][j].proximalMines=0;
         }
     }
     for (int i = 0 ; i < 10; i++) {

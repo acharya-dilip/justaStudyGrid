@@ -241,8 +241,6 @@ void gameOver() {
 
 
 int main(int argc, char **argv){
-    FILE *file = fopen("filePath.txt","a");
-    fclose(file);
     GtkApplication *app;
     int status;
     app= gtk_application_new ("org.gtk.example", G_APPLICATION_DEFAULT_FLAGS);

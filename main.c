@@ -87,10 +87,10 @@ void mainWindow() {
 
     //Init of entryHiScore
     char temp1[50];
-    snprintf(temp1,sizeof(temp1),"HiScore: %d",gameScore);
+    snprintf(temp1,sizeof(temp1),"High Score: %d",gameScore);
     entryHiScore = gtk_entry_new();
     gtk_editable_set_text(GTK_EDITABLE(entryHiScore),temp1);
-    gtk_grid_attach(GTK_GRID(gridMain),entryHiScore,7,0,2,1);
+    gtk_grid_attach(GTK_GRID(gridMain),entryHiScore,7,0,3,1);
     gtk_widget_add_css_class(entryHiScore,"Score");
 
 
@@ -263,6 +263,7 @@ void onClickButton(GtkButton *button,gpointer user_data){
     if (clickCount==71) {
         gameWin();
     }
+    updateScore();
 
 }
 
@@ -342,6 +343,10 @@ void updateScore() {
     char temp[50];
     snprintf(temp,sizeof(temp),"Score: %d",gameScore);
     gtk_editable_set_text(GTK_EDITABLE(entryScore),temp);
+
+    char temp1[50];
+    snprintf(temp1,sizeof(temp1),"High Score: %d",hiScore);
+    gtk_editable_set_text(GTK_EDITABLE(entryHiScore),temp1);
 }
 
 int main(int argc, char **argv){

@@ -159,7 +159,7 @@ void onClickButton(GtkButton *button,gpointer user_data){
     int j = buttonNo % 10;
     if (buttons[i][j].isBomb==1) {
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonBomb");
-        system("gst-play-1.0 ./src/sounds/explosion.mp3 >/dev/null 2>&1 &");
+        gameOver();
     }else if(buttons[i][j].proximalMines!=0) {
         switch (buttons[i][j].proximalMines) {
             case 1:
@@ -195,9 +195,47 @@ void onClickButton(GtkButton *button,gpointer user_data){
 
 }
 
-
-
 void gameOver() {
+    system("gst-play-1.0 ./src/sounds/explosion.mp3 >/dev/null 2>&1 &");
+    for (int i;i<9;i++) {
+        for (int j;j<9;j++) {
+            if (buttons[i][j].isBomb==1) {
+                gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonBomb");
+            }else if(buttons[i][j].proximalMines!=0) {
+                switch (buttons[i][j].proximalMines) {
+                    case 1:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal1");
+                        break;
+                    case 2:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal2");
+                        break;
+                    case 3:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal3");
+                        break;
+                    case 4:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal4");
+                        break;
+                    case 5:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal5");
+                        break;
+                    case 6:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal6");
+                        break;
+                    case 7:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal7");
+                        break;
+                    case 8:
+                        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal8");
+                        break;
+                    default:
+                        printf("Nothing found");
+                }
+            }else {
+                gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonInvisible");
+            }
+        }
+    }
+
 
 }
 

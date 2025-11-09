@@ -22,6 +22,7 @@ void setMine();
 void setProximalMines();
 void expandClick();
 void gameOver();
+void restartGame();
 
 
 //Globalized Variables
@@ -33,17 +34,20 @@ static void activate(GtkApplication *app,gpointer user_data) {
     //Init of windowGameOver
     windowGameOver = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(windowGameOver),"GAME OVER!");
-    gtk_window_set_default_size(GTK_WINDOW(windowGameOver),85,85);
+    gtk_window_set_default_size(GTK_WINDOW(windowGameOver),200,85);
 
     //Init of buttonRestart
-    GtkWidget *buttonRestart = gtk_button_new_with_label("🔃");
+    GtkWidget *buttonRestart = gtk_button_new_with_label("Restart🔃");
     gtk_window_set_child(GTK_WINDOW(windowGameOver),buttonRestart);
     gtk_widget_add_css_class(buttonRestart,"ButtonRestart");
 
 }
 
+
+
 //Globalized Variables
 GtkWidget *gridMain;
+GtkWidget *windowMain;
 void mainWindow() {
     //Initalizing CSS
     GtkCssProvider *provider = gtk_css_provider_new();
@@ -55,7 +59,7 @@ void mainWindow() {
     );
 
     //Init of windowMain
-    GtkWidget *windowMain = gtk_window_new();
+    windowMain = gtk_window_new();
     gtk_window_set_default_size(GTK_WINDOW(windowMain),450,450);
     gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
@@ -70,6 +74,13 @@ void mainWindow() {
     declareButtons();
     //Sets the value for proximalMines for buttons near mines
 }
+
+void restartGame() {
+    gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
+    gtk_window_destroy(GTK_WINDOW(windowMain));
+    mainWindow();
+}
+
 //Fetches 10 random integers and stores in buttonMines
 void fetchRandInt() {
      srand(time(NULL));

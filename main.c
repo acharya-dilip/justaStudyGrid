@@ -235,6 +235,9 @@ void onClickButton(GtkButton *button,gpointer user_data){
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonInvisible");
         clickCount++;
     }
+    if (clickCount==71) {
+        gameWin();
+    }
 
 }
 
@@ -284,7 +287,7 @@ void gameOver() {
 }
 
 void gameWin() {
-    if
+
 }
 
 int main(int argc, char **argv){

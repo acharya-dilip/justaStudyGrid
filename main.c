@@ -12,6 +12,7 @@ struct buttons {
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
 void setMine();
+void setNumbers();
 
 
 //Globalised variables
@@ -37,6 +38,9 @@ static void activate(GtkApplication *app,gpointer user_data) {
 }
 void setMine() {
     button[0][0].isBomb = 1;
+}
+void setNumbers() {
+
 }
 //for the button number count
 int butno;

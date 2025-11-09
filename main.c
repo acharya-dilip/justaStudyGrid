@@ -53,9 +53,15 @@ void fetchRandInt() {
     }
 }
 
+
+
 void setMine() {
-    //button[0][0].isBomb = 1;
     fetchRandInt();
+    for (int k=0;k<10;k++) {
+        int i = buttonMines[k]/10;
+        int j = buttonMines[k] % 10;
+        button[i][j].isBomb = 1;
+    }
 }
 
 

@@ -55,16 +55,28 @@ static void activate(GtkApplication *app,gpointer user_data) {
 }
 
 void fetchRandInt() {
-    // srand(time(NULL));
-    // for (int k=0;k<10;k++) {
-    //     int i = rand() % 9;
-    //     int j = rand() % 9;
-    //     int num = (i*10)+j;
-    //     if (!buttonMines[num]) {
-    //         buttonMines[i]=num;
-    //     }
-    //     printf("%d\t",num);
-    // }
+     srand(time(NULL));
+    int satisfied = 1;
+    int repeated = 0;
+    int cycle=0;
+    while (satisfied!=0) {
+        int a = rand() % 8;
+        int b = rand() % 8;
+        int num = (a*10)+b;
+        for (int i=0;i<10;i++) {
+            if (buttonMines[i]==num) {
+                repeated++;
+            }
+        }
+        if (repeated==0) {
+           buttonMines[cycle]=num;
+            cycle++;
+        }
+        if (cycle==10) {
+            satisfied = 0;
+        }
+    }
+
 }
 
 

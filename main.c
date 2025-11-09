@@ -40,6 +40,7 @@ static void activate(GtkApplication *app,gpointer user_data) {
     GtkWidget *buttonRestart = gtk_button_new_with_label("Restart🔃");
     gtk_window_set_child(GTK_WINDOW(windowGameOver),buttonRestart);
     gtk_widget_add_css_class(buttonRestart,"ButtonRestart");
+    g_signal_connect(buttonRestart,"clicked",G_CALLBACK(restartGame),NULL);
 
 }
 

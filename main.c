@@ -12,7 +12,7 @@ struct buttons {
     int proximalMines;
 }buttons[9][9];
 //Stores the values of the buttonNumbers for Mines
-int buttonMines[10];
+int buttonMines[10]={00,11,22,33,44,55,66,77,88,23};
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
@@ -55,16 +55,16 @@ static void activate(GtkApplication *app,gpointer user_data) {
 }
 
 void fetchRandInt() {
-    srand(time(NULL));
-    for (int k=0;k<10;k++) {
-        int i = rand() % 9;
-        int j = rand() % 9;
-        int num = (i*10)+j;
-        if (!buttonMines[num]) {
-            buttonMines[i]=num;
-        }
-        printf("%d\t",num);
-    }
+    // srand(time(NULL));
+    // for (int k=0;k<10;k++) {
+    //     int i = rand() % 9;
+    //     int j = rand() % 9;
+    //     int num = (i*10)+j;
+    //     if (!buttonMines[num]) {
+    //         buttonMines[i]=num;
+    //     }
+    //     printf("%d\t",num);
+    // }
 }
 
 

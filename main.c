@@ -20,6 +20,7 @@ void fetchRandInt();
 void setMine();
 void setProximalMines();
 void expandClick();
+void gameOver();
 
 
 //Globalised variables
@@ -158,6 +159,7 @@ void onClickButton(GtkButton *button,gpointer user_data){
     int j = buttonNo % 10;
     if (buttons[i][j].isBomb==1) {
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonBomb");
+        system("gst-play-1.0 ./src/sounds/explosion.mp3 >/dev/null 2>&1 &");
     }else if(buttons[i][j].proximalMines!=0) {
         switch (buttons[i][j].proximalMines) {
             case 1:
@@ -194,7 +196,8 @@ void onClickButton(GtkButton *button,gpointer user_data){
 }
 
 
-void expandClick() {
+
+void gameOver() {
 
 }
 

@@ -12,26 +12,66 @@
     all: unset;
 }
 .mineProxmial1{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial2{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial3{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/3.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial4{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial5{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/5.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial6{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/6.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial7{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/7.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .mineProxmial8{
-
+    all: unset;
+    color: transparent;
+    background-image: url("src/8.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

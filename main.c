@@ -30,6 +30,7 @@ void clearMines();
 void updateScore();
 void fetchHiScore();
 void updateHiScore();
+void closeProgram();
 
 //Globalized Variables
 GtkWidget *windowGameOver;
@@ -75,6 +76,8 @@ void mainWindow() {
     gtk_window_set_default_size(GTK_WINDOW(windowMain),450,450);
     gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
+    g_signal_connect(windowMain,"destroy",G_CALLBACK(closeProgram),NULL);
+
 
 
     //init of gridMain
@@ -339,13 +342,7 @@ void restartGame() {
     gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
     gtk_widget_set_visible(GTK_WIDGET(windowGameWin),FALSE);
     gtk_window_destroy(GTK_WINDOW(windowMain));
-    char temp[5];
-    snprintf(temp,sizeof(temp),"%d",gameScore);
-    if (strcmp(temp,hiScore)>=0){
-        strcpy(hiScore,temp);
-        gameScore = 0;
-        updateHiScore();
-    }
+    updateHiScore();
     clearMines();
     mainWindow();
 }
@@ -365,8 +362,20 @@ void fetchHiScore() {
     fclose(file);
 }
 void updateHiScore() {
-    FILE *file = fopen("HiScore.txt","w");
-    fprintf(file,"%s",hiScore);
+    char temp[5];
+    snprintf(temp,sizeof(temp),"%d",gameScore);
+    if (strcmp(temp,hiScore)>=0){
+        strcpy(hiScore,temp);
+        gameScore = 0;
+        FILE *file = fopen("HiScore.txt","w");
+        fprintf(file,"%s",hiScore);
+
+    }
+}
+void closeProgram() {
+
+    gtk_window_destroy(GTK_WINDOW(windowGameOver));
+    updateHiScore();
 }
 int main(int argc, char **argv){
     FILE *file = fopen("HiScore.txt","a");

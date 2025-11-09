@@ -8,6 +8,7 @@ struct buttons {
     int isFlag;
 }button[9][9];
 
+
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
 void setMine();
@@ -33,6 +34,9 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
 
 
+}
+void setMine() {
+    button[0][0].isBomb = 1;
 }
 //for the button number count
 int butno;

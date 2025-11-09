@@ -73,11 +73,12 @@ void mainWindow() {
     gridMain = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);
 
-    //Init of labelScore
+    //Init of entryScore
     char temp[50];
     snprintf(temp,sizeof(temp),"Score: %d",gameScore);
-    GtkWidget *labelScore = gtk_label_new(temp);
-    gtk_grid_attach(GTK_GRID(gridMain),labelScore,0,0,2,1);
+    GtkWidget *entryScore = gtk_entry_new();
+    gtk_editable_set_text(GTK_EDITABLE(entryScore),temp);
+    gtk_grid_attach(GTK_GRID(gridMain),entryScore,0,0,2,1);
 
     //Sets Random Buttons as mines
     setMine();

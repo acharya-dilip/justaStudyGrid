@@ -80,7 +80,7 @@ void setMine() {
 
 
 void setProximalMines() {
-    for (int k;k<10;k++) {
+    for (int k=0;k<10;k++) {
         int i = buttonMines[k]/10;
         int j = buttonMines[k]%10;
         buttons[i+1][j].proximalMines = buttons[i+1][j].proximalMines+1;
@@ -149,7 +149,6 @@ void onClickButton(GtkButton *button,gpointer user_data) {
         }
     }else {
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonInvisible");
-        printf("Nothing found invis");
     }
 
 }

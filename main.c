@@ -290,6 +290,8 @@ void gameOver() {
 //Globalised Variables
 GtkWidget *windowGameWin;
 void gameWin() {
+    //Plays a winning sound
+    system("gst-play-1.0 ./src/sounds/win.mp3 >/dev/null 2>&1 &");
     //Init of windowGameOver
     windowGameWin = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowGameOver),"You Win!!");

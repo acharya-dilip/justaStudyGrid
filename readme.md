@@ -17,11 +17,12 @@ So get on sweeping the grid made completely using gtk and C.
 - The proximal numbers around the mines 
 - Clicking sound for the grid
 - Bomb explosion
+- A winning system
 
 # What I want to work
 - The empty expansion clicking
 - A flag system
-- A winning system
+
 
 # Arch Build Instructions
 |Commands|What They Do?|

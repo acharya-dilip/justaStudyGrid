@@ -79,12 +79,6 @@ void mainWindow() {
     //Sets the value for proximalMines for buttons near mines
 }
 
-void restartGame() {
-    gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
-    gtk_window_destroy(GTK_WINDOW(windowMain));
-    clearMines();
-    mainWindow();
-}
 void clearMines() {
     for (int i =0 ; i < 9;i++) {
         for (int j = 0 ; j<9;j++) {
@@ -303,6 +297,15 @@ void gameWin() {
     gtk_widget_add_css_class(buttonRestart,"ButtonRestart");
     g_signal_connect(buttonRestart,"clicked",G_CALLBACK(restartGame),NULL);
 }
+
+void restartGame() {
+    gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
+    gtk_widget_set_visible(GTK_WIDGET(windowGameWin),FALSE);
+    gtk_window_destroy(GTK_WINDOW(windowMain));
+    clearMines();
+    mainWindow();
+}
+
 
 int main(int argc, char **argv){
     GtkApplication *app;

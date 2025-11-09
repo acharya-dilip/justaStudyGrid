@@ -290,6 +290,7 @@ void gameWin() {
     windowGameWin = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowGameOver),"You Win!!");
     gtk_window_set_default_size(GTK_WINDOW(windowGameOver),200,85);
+    gtk_window_present(GTK_WINDOW(windowGameWin));
 
     //Init of buttonRestart
     GtkWidget *buttonRestart = gtk_button_new_with_label("Restart🔃");

@@ -13,6 +13,7 @@ struct buttons {
 }buttons[9][9];
 //Stores the values of the buttonNumbers for Mines
 int buttonMines[10];//={00,11,22,33,44,55,66,77,88,23};
+int gameScore;
 
 void mainWindow();
 void declareButtons();
@@ -71,6 +72,12 @@ void mainWindow() {
     //init of gridMain
     gridMain = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowMain),gridMain);
+
+    //Init of labelScore
+    char temp[50];
+    snprintf(temp,sizeof(temp),"Score: %d",gameScore);
+    GtkWidget *labelScore = gtk_label_new(temp);
+    gtk_grid_attach(GTK_GRID(gridMain),labelScore,0,0,2,1);
 
     //Sets Random Buttons as mines
     setMine();

@@ -27,6 +27,7 @@ void gameOver();
 void restartGame();
 void gameWin();
 void clearMines();
+void updateScore();
 
 
 //Globalized Variables
@@ -337,6 +338,11 @@ void restartGame() {
     mainWindow();
 }
 
+void updateScore() {
+    char temp[50];
+    snprintf(temp,sizeof(temp),"Score: %d",gameScore);
+    gtk_editable_set_text(GTK_EDITABLE(entryScore),temp);
+}
 
 int main(int argc, char **argv){
     FILE *file = fopen("HiScore.txt","a");

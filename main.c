@@ -10,6 +10,7 @@ struct buttons {
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
+void setMine();
 
 
 //Globalised variables
@@ -44,14 +45,20 @@ void declareButtons() {
             g_signal_connect(button[i][j].sweeperButtons,"clicked",G_CALLBACK(onClickButton),GINT_TO_POINTER(butno));
             //Sets the minimum size of buttons to be 50x50
             gtk_widget_set_size_request(GTK_WIDGET(button[i][j].sweeperButtons),50,50);
-            butno++;
+            butno=i*10+j;
         }
     }
 }
 
+
+
+
 void onClickButton(GtkButton *button,gpointer user_data) {
     int buttonNo = GPOINTER_TO_INT(user_data);
-    printf("Button no=%d",buttonNo);
+    int i = buttonNo / 10;
+    int j = buttonNo % 10;
+    printf("Button no=%d\n",buttonNo);
+    printf("i=%d \t j=%d",i,j);
 }
 
 
@@ -68,7 +75,6 @@ int main(int argc, char **argv){
 
      GtkCssProvider *provider = gtk_css_provider_new();
     gtk_css_provider_load_from_path(provider, "styles.css");
-
     gtk_style_context_add_provider_for_display(
         gdk_display_get_default(),
         GTK_STYLE_PROVIDER(provider),

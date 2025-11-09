@@ -219,26 +219,34 @@ void onClickButton(GtkButton *button,gpointer user_data){
         switch (buttons[i][j].proximalMines) {
             case 1:
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal1");
+                gameScore+=10;
                 break;
             case 2:
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal2");
+                gameScore+=20;
                 break;
             case 3:
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal3");
+                gameScore+=30;
                 break;
             case 4:
+                gameScore+=40;
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal4");
                 break;
             case 5:
+                gameScore+=50;
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal5");
                 break;
             case 6:
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal6");
+                gameScore+=60;
                 break;
             case 7:
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal7");
+                gameScore+=70;
                 break;
             case 8:
+                gameScore+=80;
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal8");
                 break;
             default:
@@ -247,6 +255,7 @@ void onClickButton(GtkButton *button,gpointer user_data){
     }else {
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonInvisible");
         clickCount++;
+        gameScore+=5;
     }
     if (clickCount==71) {
         gameWin();

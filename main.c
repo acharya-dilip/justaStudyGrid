@@ -53,6 +53,8 @@ static void activate(GtkApplication *app,gpointer user_data) {
 //Globalized Variables
 GtkWidget *gridMain;
 GtkWidget *windowMain;
+GtkWidget *entryScore;
+GtkWidget *entryHiScore;
 void mainWindow() {
     //Initalizing CSS
     GtkCssProvider *provider = gtk_css_provider_new();
@@ -77,7 +79,7 @@ void mainWindow() {
     //Init of entryScore
     char temp[50];
     snprintf(temp,sizeof(temp),"Score: %d",gameScore);
-    GtkWidget *entryScore = gtk_entry_new();
+    entryScore = gtk_entry_new();
     gtk_editable_set_text(GTK_EDITABLE(entryScore),temp);
     gtk_grid_attach(GTK_GRID(gridMain),entryScore,0,0,2,1);
     gtk_widget_add_css_class(entryScore,"Score");
@@ -85,7 +87,7 @@ void mainWindow() {
     //Init of entryHiScore
     char temp1[50];
     snprintf(temp1,sizeof(temp1),"HiScore: %d",gameScore);
-    GtkWidget *entryHiScore = gtk_entry_new();
+    entryHiScore = gtk_entry_new();
     gtk_editable_set_text(GTK_EDITABLE(entryHiScore),temp1);
     gtk_grid_attach(GTK_GRID(gridMain),entryHiScore,7,0,2,1);
     gtk_widget_add_css_class(entryHiScore,"Score");

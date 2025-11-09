@@ -18,6 +18,7 @@ So get on sweeping the grid made completely using gtk and C.
 - Clicking sound for the grid
 - Bomb explosion
 - A winning system
+- Score System
 
 # What I want to work
 - The empty expansion clicking

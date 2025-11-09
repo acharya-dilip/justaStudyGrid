@@ -373,9 +373,8 @@ void updateHiScore() {
     }
 }
 void closeProgram() {
-
-    gtk_window_destroy(GTK_WINDOW(windowGameOver));
     updateHiScore();
+    gtk_window_destroy(GTK_WINDOW(windowGameOver));
 }
 int main(int argc, char **argv){
     FILE *file = fopen("HiScore.txt","a");

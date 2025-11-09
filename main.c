@@ -33,11 +33,13 @@ static void activate(GtkApplication *app,gpointer user_data) {
     //Init of windowGameOver
     windowGameOver = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(windowGameOver),"GAME OVER!");
-    gtk_window_set_default_size(GTK_WINDOW(windowGameOver),200,200);
+    gtk_window_set_default_size(GTK_WINDOW(windowGameOver),85,85);
 
     //Init of buttonRestart
-    GtkWidget *buttonRestart = gtk_button_new_with_label("Restart🔃");
+    GtkWidget *buttonRestart = gtk_button_new_with_label("🔃");
     gtk_window_set_child(GTK_WINDOW(windowGameOver),buttonRestart);
+    gtk_widget_add_css_class(buttonRestart,"ButtonRestart");
+
 }
 
 //Globalized Variables
@@ -248,6 +250,7 @@ void gameOver() {
         }
     }
     gtk_window_present(GTK_WINDOW(windowGameOver));
+
 
 }
 

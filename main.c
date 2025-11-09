@@ -12,6 +12,7 @@ int buttonMines[10];
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
+void fetchRandInt();
 void setMine();
 void setNumbers();
 
@@ -37,8 +38,8 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
 
 }
-void setMine() {
-    //button[0][0].isBomb = 1;
+
+void fetchRandInt() {
     int rept;
     for (int k=0;k<10;k++) {
         while (rept==0){
@@ -50,6 +51,11 @@ void setMine() {
             }
         }
     }
+}
+
+void setMine() {
+    //button[0][0].isBomb = 1;
+    fetchRandInt();
 }
 
 

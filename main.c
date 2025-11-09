@@ -66,5 +66,14 @@ int main(int argc, char **argv){
     status = g_application_run (G_APPLICATION (app), argc, argv);
     g_object_unref (app);
 
+    GtkCssProvider *provider = gtk_css_provider_new();
+    gtk_css_provider_load_from_path(provider, "styles.css");
+
+    gtk_style_context_add_provider_for_display(
+        gdk_display_get_default(),
+        GTK_STYLE_PROVIDER(provider),
+        GTK_STYLE_PROVIDER_PRIORITY_USER
+    );
+
     return status;
 }

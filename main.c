@@ -74,7 +74,6 @@ void fetchRandInt() {
             cycle++;
         }
     }
-    printf("I RUN AGAIAN");
 }
 
 
@@ -197,8 +196,8 @@ void onClickButton(GtkButton *button,gpointer user_data){
 
 void gameOver() {
     system("gst-play-1.0 ./src/sounds/explosion.mp3 >/dev/null 2>&1 &");
-    for (int i;i<9;i++) {
-        for (int j;j<9;j++) {
+    for (int i=0;i<9;i++) {
+        for (int j=0;j<9;j++) {
             if (buttons[i][j].isBomb==1) {
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonBomb");
             }else if(buttons[i][j].proximalMines!=0) {

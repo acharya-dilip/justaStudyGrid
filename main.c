@@ -9,15 +9,16 @@ struct buttons {
     GtkWidget *sweeperButtons;
     int isBomb;
     int isFlag;
+    int proximalMines;
 }buttons[9][9];
 //Stores the values of the buttonNumbers for Mines
-int buttonMines[10]={0,1,2,3,4,5,6,7,8,10};
+int buttonMines[10];
 
 void declareButtons();
 void onClickButton(GtkButton *button,gpointer user_data);
 void fetchRandInt();
 void setMine();
-void setNumbers();
+void setProximalMines();
 
 
 //Globalised variables
@@ -48,9 +49,6 @@ static void activate(GtkApplication *app,gpointer user_data) {
     //Declare and attach all the buttons
     declareButtons();
 
-
-
-
 }
 
 void fetchRandInt() {
@@ -79,8 +77,20 @@ void setMine() {
 
 
 
-void setNumbers() {
+void setProximalMines() {
+    for (int k;k<10;k++) {
+        int i = buttonMines[k]/10;
+        int j = buttonMines[k]%10;
+        buttons[i+1][j].proximalMines++;
+        buttons[i-1][j].proximalMines++;
+        buttons[i][j+1].proximalMines++;
+        buttons[i][j-1].proximalMines++;
+        buttons[i+1][j+1].proximalMines++;
+        buttons[i-1][j-1].proximalMines++;
+        buttons[i+1][j-1].proximalMines++;
+        buttons[i-1][j+1].proximalMines++;
 
+    }
 }
 
 //for the button number count

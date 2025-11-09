@@ -28,7 +28,7 @@ void restartGame();
 void gameWin();
 void clearMines();
 void updateScore();
-void fetchHiSore();
+void fetchHiScore();
 void updateHiScore();
 
 //Globalized Variables
@@ -66,7 +66,10 @@ void mainWindow() {
         GTK_STYLE_PROVIDER(provider),
         GTK_STYLE_PROVIDER_PRIORITY_USER
     );
-
+    //Fetches the HiSCore from previous runs
+    fetchHiScore();
+    //Updates the scores intiallly
+    updateScore();
     //Init of windowMain
     windowMain = gtk_window_new();
     gtk_window_set_default_size(GTK_WINDOW(windowMain),450,450);

@@ -53,7 +53,7 @@ static void activate(GtkApplication *app,gpointer user_data) {
 
 
 }
-
+//Fetches 10 random integers and stores in buttonMines
 void fetchRandInt() {
      srand(time(NULL));
     int satisfied = 1;

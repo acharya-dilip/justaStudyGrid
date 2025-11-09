@@ -19,6 +19,7 @@ void onClickButton(GtkButton *button,gpointer user_data);
 void fetchRandInt();
 void setMine();
 void setProximalMines();
+void expandClick();
 
 
 //Globalised variables
@@ -56,10 +57,9 @@ static void activate(GtkApplication *app,gpointer user_data) {
 //Fetches 10 random integers and stores in buttonMines
 void fetchRandInt() {
      srand(time(NULL));
-    int satisfied = 1;
     int repeated = 0;
     int cycle=0;
-    while (satisfied!=0) {
+    while (cycle!=10) {
         int a = rand() % 8;
         int b = rand() % 8;
         int num = (a*10)+b;
@@ -72,11 +72,7 @@ void fetchRandInt() {
            buttonMines[cycle]=num;
             cycle++;
         }
-        if (cycle==10) {
-            satisfied = 0;
-        }
     }
-
 }
 
 
@@ -155,6 +151,7 @@ void declareButtons(){
 
 
 void onClickButton(GtkButton *button,gpointer user_data){
+    system("gst-play-1.0 ./src/sounds/click.mp3 >/dev/null 2>&1 &");
     int buttonNo = GPOINTER_TO_INT(user_data);
     int i = buttonNo / 10;
     int j = buttonNo % 10;

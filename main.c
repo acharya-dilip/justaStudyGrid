@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <gtk/gtk.h>
-#include <curl/curl.h>
+
 
 
 struct buttons {

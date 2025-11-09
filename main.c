@@ -28,7 +28,8 @@ void restartGame();
 void gameWin();
 void clearMines();
 void updateScore();
-
+void fetchHiSore();
+void updateHiScore();
 
 //Globalized Variables
 GtkWidget *windowGameOver;
@@ -335,6 +336,8 @@ void restartGame() {
     gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
     gtk_widget_set_visible(GTK_WIDGET(windowGameWin),FALSE);
     gtk_window_destroy(GTK_WINDOW(windowMain));
+    hiScore = gameScore;
+    gameScore = 0;
     clearMines();
     mainWindow();
 }
@@ -348,7 +351,11 @@ void updateScore() {
     snprintf(temp1,sizeof(temp1),"High Score: %d",hiScore);
     gtk_editable_set_text(GTK_EDITABLE(entryHiScore),temp1);
 }
-
+void fetchHiScore() {
+    FILE *file = fopen("HiScore.txt","r");
+    fscanf(file,"%d",&hiScore);
+    fclose(file);
+}
 int main(int argc, char **argv){
     FILE *file = fopen("HiScore.txt","a");
     fclose(file);

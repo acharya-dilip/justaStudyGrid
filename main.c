@@ -79,6 +79,7 @@ void mainWindow() {
     GtkWidget *entryScore = gtk_entry_new();
     gtk_editable_set_text(GTK_EDITABLE(entryScore),temp);
     gtk_grid_attach(GTK_GRID(gridMain),entryScore,0,0,2,1);
+    gtk_widget_add_css_class(entryScore,"Score");
 
     //Sets Random Buttons as mines
     setMine();

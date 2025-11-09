@@ -23,7 +23,7 @@ void setProximalMines();
 void expandClick();
 void gameOver();
 void restartGame();
-void clearOld();
+void clearMines();
 
 
 //Globalized Variables
@@ -80,14 +80,17 @@ void mainWindow() {
 void restartGame() {
     gtk_widget_set_visible(GTK_WIDGET(windowGameOver),FALSE);
     gtk_window_destroy(GTK_WINDOW(windowMain));
-    clearOld();
+    clearMines();
     mainWindow();
 }
-void clearOld() {
+void clearMines() {
     for (int i =0 ; i < 9;i++) {
         for (int j = 0 ; j<9;j++) {
-
+            buttons[i][j].isBomb=0;
         }
+    }
+    for (int i = 0 ; i < 10; i++) {
+        buttonMines[i]= 0 ;
     }
 }
 //Fetches 10 random integers and stores in buttonMines

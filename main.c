@@ -23,6 +23,7 @@ void setProximalMines();
 void expandClick();
 void gameOver();
 void restartGame();
+void gameWin();
 void clearMines();
 
 
@@ -65,6 +66,7 @@ void mainWindow() {
     gtk_window_set_default_size(GTK_WINDOW(windowMain),450,450);
     gtk_window_set_title(GTK_WINDOW(windowMain),"JustaGridSweeper");
     gtk_window_present(GTK_WINDOW(windowMain));
+
 
     //init of gridMain
     gridMain = gtk_grid_new();
@@ -189,7 +191,8 @@ void declareButtons(){
 
 
 
-
+//Globalised Variable to detect how many buttons are clicked
+int clickCount;
 void onClickButton(GtkButton *button,gpointer user_data){
     system("gst-play-1.0 ./src/sounds/click.mp3 >/dev/null 2>&1 &");
     int buttonNo = GPOINTER_TO_INT(user_data);
@@ -199,6 +202,7 @@ void onClickButton(GtkButton *button,gpointer user_data){
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonBomb");
         gameOver();
     }else if(buttons[i][j].proximalMines!=0) {
+        clickCount++;
         switch (buttons[i][j].proximalMines) {
             case 1:
                 gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"mineProximal1");
@@ -229,6 +233,7 @@ void onClickButton(GtkButton *button,gpointer user_data){
         }
     }else {
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonInvisible");
+        clickCount++;
     }
 
 }
@@ -278,7 +283,9 @@ void gameOver() {
 
 }
 
-
+void gameWin() {
+    if
+}
 
 int main(int argc, char **argv){
     GtkApplication *app;

@@ -46,6 +46,9 @@ void declareButtons() {
 
             button[i][j].sweeperButtons = gtk_button_new();
             gtk_grid_attach(GTK_GRID(gridMain),button[i][j].sweeperButtons,j,i,1,1);
+            if (button[i][j].isBomb==1) {
+                gtk_widget_add_css_class(button[i][j].sweeperButtons,"ButtonBomb");
+            }
             g_signal_connect(button[i][j].sweeperButtons,"clicked",G_CALLBACK(onClickButton),GINT_TO_POINTER(butno));
             //Sets the minimum size of buttons to be 50x50
             gtk_widget_set_size_request(GTK_WIDGET(button[i][j].sweeperButtons),50,50);

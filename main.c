@@ -107,6 +107,9 @@ void onClickButton(GtkButton *button,gpointer user_data) {
     if (buttons[i][j].isBomb==1) {
         gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonBomb");
     }
+    else {
+        gtk_widget_add_css_class(buttons[i][j].sweeperButtons,"ButtonInvisible");
+    }
 
 }
 

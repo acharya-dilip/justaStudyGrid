@@ -3,6 +3,9 @@ JustaGridSweeper is a Minesweeper Game made completely in C<br>
 Get those mines sweeped off the grid! OH NOO! EXPLOSION!! BOOOM!!!<br>
 So get on sweeping the grid made completely using gtk and C.
 
+# Demo Video
+- https://hc-cdn.hel1.your-objectstorage.com/s/v3/8c82e452fcc6f988ca54f2f416592e644b66a80e_2025-11-10_19-05-54.mp4
+
 # How to user?
 - Open the game 
 - Start Clickin
